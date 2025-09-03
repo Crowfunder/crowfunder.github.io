@@ -1,7 +1,8 @@
 # Site settings
 title: Crowfunder's Blog # site title
 description: >- # site description
-My personal archive for depositing my inexplicable ideas. I do not take responsibility for anything here that transgresses moral and/or professional norms. 
+  My personal archive for depositing my inexplicable ideas. 
+  I do not take responsibility for anything here that transgresses moral and/or professional norms. 
 lang: en-US # default lang
 timezone: Europe/Warsaw # set your timezone
 image: assets/img/ogp.png # This image used for Open Graph more info https://ogp.me/

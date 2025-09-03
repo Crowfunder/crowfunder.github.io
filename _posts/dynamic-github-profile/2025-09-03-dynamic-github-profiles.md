@@ -17,13 +17,13 @@ The "coolness" of the profile, while entirely subjective, can be derived from nu
 
 **EDIT: It's been a while since I wrote this article and to my minor dismay, it turns out that it is not an entirely new idea and is quite well documented. Check out [this repository](https://github.com/abhisheknaiidu/awesome-github-profile-readme?tab=readme-ov-file#github-actions-) for more, cool examples on GitHub Actions integrations with your profile.**
 
-## The idea
+## The Idea
 
 Recruiters, just like programmers or other human beings, tend to work at various times of the day. I thought it would be a cool idea to, bear with me, "personalize" the experience a bit. It's a common thing with (human) languages how you greet people in different ways depending on the time of the day. 
 
 Let's say I want to have a "different" profile in the day and in the night - for starters, different image banners. Well, while GitHub markdown does support HTML tags, it doesn't support any code execution. The simple way would be a small server that serves different resources based on the time of day, but guess it or not, I'm a broke student and I'd rather not spend money just to have a day/night banner.
 
-## GitHub Actions to action
+## GitHub Actions to Action
 If I know a way to have a free (ish) "server" that performs tasks, to that one that has a capability of interacting with GitHub repositories, it's GitHub Actions.
 
 Love them or not, they have a [very generous free tier](https://github.com/pricing) - 2000 CI minutes per month. For scale, the runners used by this project take up 2\*3=6 seconds per day, which results in around 3 minutes of usage per month, out of 2000. Neat, isn't it? That is for public repositories though, but for our use case it's not a problem, as the "CDN" needs to be public anyways.
@@ -41,7 +41,7 @@ Once we have the files ready, let's figure out how to get an action to run on sc
 
 As it turns out, Actions can be scheduled like a good-old Cron job. Great, we can create two actions - one that runs in the morning, the other that runs in the evening. Actions are also capable of executing shell commands on their runners, and performing any kind of tasks with the repository; for our case - committing and pushing.
 
-## The code
+## The Code
 
 ```yaml
 name: Set Day Image
@@ -78,7 +78,7 @@ I would also like to avoid spamming my activity graph with regularly scheduled c
 
 The rest is simple, copy the appropriate file, overwriting "banner.gif", commit and push. What could go wrong?
 
-## The "oh no" moment
+## The "oh no" Moment
 The first issue I encountered was fairly apparent, action failed with some permission errors. 
 > Permission to git denied to github-actions[bot]
 
@@ -106,3 +106,8 @@ That's exactly the issue I had, but at that time I lacked this information. You 
 Well, now we're in quite a pickle. I started digging for why the images in README are not updating. I found this [discussion](https://github.com/orgs/community/discussions/46773) and it remarked using a PURGE http method, which the GitHub API apparently understands (I've not once heard of that method in my entire lifetime). But that solution is a little tedious - manually invoking the API twice a day is, generally speaking, not the best solution. Automating it was also uncertain, as I wasn't sure if the cache URLs were really static, especially after purging cache. 
 
 Fortunately enough, yet another, surprisingly simple [solution](https://github.com/atom/markdown-preview/issues/207#issuecomment-248848108) was proposed - appending a question mark at the end of the image URL (if it isn't already parameterized, if it is then it already shouldn't cache the image) . As stupidly simple as it is, it warrants a cache miss every single time. Upon applying this quick tweak, the image changes were finally visible. The profile was complete... or was it?
+
+## What's next?
+Knowing that you can freely modify your README.md with scheduled arbitrary code execution, I think you can imagine that anything is possible. For example, another great idea I had in mind was displaying the weather in my city for recruiters to indulge themselves in it (be it out of envy or schadenfreude, mostly the latter though). 
+
+Generous free tiers are amazing, especially for CI/CD which will inevitably be abused, be it for building malware, or for swapping images on a GitHub profile.

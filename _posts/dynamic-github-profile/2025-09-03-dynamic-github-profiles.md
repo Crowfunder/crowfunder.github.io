@@ -3,8 +3,7 @@ title: Making GitHub Profiles Cool - Painful Lessons with GitHub
 date: 2025-04-06 17:53:47 +02:00
 modified: 2025-04-22 09:24:47 +02:00
 tags: [github, github-actions]
-description: Discovering a simple way to have a dynamic, free, customized GitHub profile reacting to,
-for an instance, time of the day.
+description: Discovering a simple way to have a dynamic, free, customized GitHub profile reacting to, for an instance, time of the day.
 image: ""
 ---
 

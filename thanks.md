@@ -2,12 +2,11 @@
 title: Acknowledgment
 permalink: /thanks/
 layout: page
-excerpt: Thanks to amazing people that i met, who help me out from follishness, connecting me with another good person, giving some advice when i'm at a bad things, pulling me from ordinary to be great.
 comments: false
 ---
 
-Thanks to amazing people that i met, who help me out from follishness, connecting me with another good person, giving some advice when i'm at a bad things, pulling me from ordinary to be great.
+This is my personal blog, not representative of any organisation I belong to or interact with. Written for my own satisfaction and posterity. I'm grateful to all sources I reference in my articles as well as you, dear reader, for spending a brief moment with my texts.
 
 <hr>
 
-Hopefully the knowledge that I got from them can be useful, and become a charity for them, Aamiin.
+This page was made possible with [Jekyll](https://jekyllrb.com/) using [Klisé](https://github.com/piharpi/jekyll-klise) theme as a template.

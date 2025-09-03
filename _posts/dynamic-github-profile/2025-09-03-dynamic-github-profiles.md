@@ -1,7 +1,7 @@
 ---
 title: Making GitHub Profiles Cool - Painful Lessons with GitHub
-date: {}
-modified: {}
+date: 2025-04-06T15:53:47.000Z
+modified: 2025-09-03T23:57:47.000Z
 tags:
   - github
   - github-actions
@@ -9,7 +9,6 @@ description: >-
   Discovering a simple way to have a dynamic, free, customized GitHub profile
   reacting to, for an instance, time of the day.
 ---
-
 As I was preparing for yet another job search, I've decided it's about time I write a proper, neat README for my GitHub profile. It's common knowledge how professionalism is measured by the number of stars on your repos, how green your activity graph is and how cool your profile looks.
 
 The "coolness" of the profile, while entirely subjective, can be derived from numerous things. For some people, it's denounced by how many animated stat graphs you can fit on one page, for others it's how niche the anime girl on your avatar is, but I thought it would be neat to have a "technically impressive" (/s) profile.

@@ -13,7 +13,7 @@ mode: dark # default theme "dark" | "light"
 author:
   name: Crowfunder # author name
   bio: >- # tell to the world
-      I'm Crowfunder, an aspiring developer tinkering with a lot of stuff, such as obscure computer games, malware,
+      An aspiring developer tinkering with a lot of stuff, such as obscure computer games, malware,
       Android reverse engineering or 3D model formats. 
   username: Crowfunder # general username
   github: Crowfunder # github username

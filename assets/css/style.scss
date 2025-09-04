@@ -4,8 +4,6 @@
 @import "main";
 
 body {
-  background-image: url("https://i.imgur.com/fQ6VLFT.png");
-  background-repeat: no-repeat;
+  background-image: url("https://i.imgur.com/fQ6VLFT.png") no-repeat center center / cover;;
   background-attachment: fixed;  
-  background-size: cover; 
 }

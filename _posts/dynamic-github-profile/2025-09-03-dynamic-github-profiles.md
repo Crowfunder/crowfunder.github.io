@@ -29,7 +29,7 @@ If I know a way to have a free (ish) "server" that performs tasks, to that one t
 Love them or not, they have a [very generous free tier](https://github.com/pricing) - 2000 CI minutes per month. For scale, the runners used by this project take up 2\*3=6 seconds per day, which results in around 3 minutes of usage per month, out of 2000. Neat, isn't it? That is for public repositories though, but for our use case it's not a problem, as the "CDN" needs to be public anyways.
 
 <figure>
-<img src="{{site.imageurl}}/_posts/dynamic-github-profile/free-tier.png" alt="github free tier perks" style="width: 55vw;">
+<img src="{{site.imageurl}}/_posts/dynamic-github-profile/free-tier.png" alt="github free tier perks" style="max-width: 55vw;">
 <figcaption>Github free perks, including free CI minutes.</figcaption>
 </figure>
 
@@ -44,7 +44,7 @@ Let's start by creating a simple animated banner that changes with the time of t
 The repository that serves as our CDN (coincidentally, also the profile README repo, but it isn't a necessity) has an "assets" subdir, with a nested "parts" subdir. The "assets" subdir will hold a "banner.gif" file that will be linked in the profile and will be overwritten by GitHub Action with files from "parts" subdir. 
 
 <figure>
-<img src="{{site.imageurl}}/_posts/dynamic-github-profile/files.png" alt="files structure" style="width: 55vw;">
+<img src="{{site.imageurl}}/_posts/dynamic-github-profile/files.png" alt="files structure" style="max-width: 55vw;">
 <figcaption>Repository file tree</figcaption>
 </figure>
 
@@ -52,7 +52,7 @@ The repository that serves as our CDN (coincidentally, also the profile README r
 Once we have the files ready, let's figure out how to get an action to run on schedule. A quick Google search (and a dig through AI generated slop) led me to [this amazing blog post](https://jasonet.co/posts/scheduled-actions/) by [Jason Etcovitch](https://twitter.com/JasonEtco) which gave a detailed answer. It did not however mention the caveats, but we'll get to that later.
 
 <figure>
-<img src="{{site.imageurl}}/_posts/dynamic-github-profile/cron-syntax.png" alt="cron job syntax" style="width: 55vw;">
+<img src="{{site.imageurl}}/_posts/dynamic-github-profile/cron-syntax.png" alt="cron job syntax" style="max-width: 55vw;">
 <figcaption>Cron syntax for scheduling actions</figcaption>
 </figure>
 
@@ -102,7 +102,7 @@ The first issue I encountered was fairly apparent, action failed with some permi
 A quick search gives a [quick resolution](https://github.com/ad-m/github-push-action/issues/96), apparently Actions are given read-only permissions to the repo by default. All that needs to be done is giving the workflows "Read and write permissions" in repository settings.
 
 <figure>
-<img src="https://user-images.githubusercontent.com/2881159/127678772-776865c9-ca74-449b-a6df-8e95a0471560.png" alt="what to click in actions settings" style="width: 55vw;">
+<img src="https://user-images.githubusercontent.com/2881159/127678772-776865c9-ca74-449b-a6df-8e95a0471560.png" alt="what to click in actions settings" style="max-width: 55vw;">
 <figcaption>What to click to change Actions permissions</figcaption>
 </figure>
 
@@ -115,7 +115,7 @@ Now, it's time to see if the scheduling works properly. Evening was nearing by, 
 Surprisingly, it didn't take long for me to find a [discussion](https://github.com/orgs/community/discussions/147369) referencing a relevant [blog post](https://upptime.js.org/blog/2021/01/22/github-actions-schedule-not-working/). It mentions that scheduled GitHub actions barely ever run on-time, with delays up to several minutes being the norm. As it turns out, the scheduling documentation mentions the same thing, but nobody ever reads the docs, right?
 
 <figure>
-<img src="{{site.imageurl}}/_posts/dynamic-github-profile/actions-schedule-discussion.png" alt="discussion on cron jobs syntax" style="width: 55vw;">
+<img src="{{site.imageurl}}/_posts/dynamic-github-profile/actions-schedule-discussion.png" alt="discussion on cron jobs syntax" style="max-width: 55vw;">
 <figcaption>Reply of a Github affiliate, exerpt from the linked post</figcaption>
 </figure>
 
@@ -133,7 +133,7 @@ Well, now we're in quite a pickle. I started digging for why the images in READM
 Fortunately enough, yet another, surprisingly simple [solution](https://github.com/atom/markdown-preview/issues/207#issuecomment-248848108) was proposed - appending a question mark at the end of the image URL (if it isn't already parameterized, if it is then it already shouldn't cache the image) . As stupidly simple as it is, it warrants a cache miss every single time. Upon applying this quick tweak, the image changes were finally visible. The profile was complete... or was it?
 
 <figure>
-<img src="{{site.imageurl}}/_posts/dynamic-github-profile/profile-end-result.png" alt="github profile after changes" style="width: 55vw;">
+<img src="{{site.imageurl}}/_posts/dynamic-github-profile/profile-end-result.png" alt="github profile after changes" style="max-width: 55vw;">
 <figcaption>The "end" result, looks neat, doesn't it?</figcaption>
 </figure>
 

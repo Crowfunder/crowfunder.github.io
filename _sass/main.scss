@@ -50,6 +50,7 @@ $on-widescreen: 1152px;
 
 // Backgrounds
 $background-dark: url("https://i.imgur.com/fQ6VLFT.png");
+$background-light: url("https://i.imgur.com/RGcgu3w.jpeg");
 
 @mixin media-query($device) {
   @media screen and (max-width: $device) {

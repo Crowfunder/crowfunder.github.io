@@ -1,7 +1,7 @@
 ---
 title: Making GitHub Profiles Cool - Painful Lessons with GitHub
-date: {}
-modified: {}
+date: 2025-04-06T15:53:47.000Z
+modified: 2025-09-04T18:54:47.000Z
 tags:
   - github
   - github-actions

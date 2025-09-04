@@ -25,8 +25,8 @@ $white: #fff;
 
 // Dark Colors
 $dark-text-base-color: #c7bebe;
-$dark-text-link-blue: #ff5277;
-$dark-text-link-blue-active: #ff2957;
+$dark-text-link-blue: #2781ff;
+$dark-text-link-blue-active: #016bff;
 
 $dark-black: #131418;
 $dark-white: #eaeaea;
@@ -47,6 +47,9 @@ $on-mobile: 768px;
 $on-tablet: 769px;
 $on-desktop: 1024px;
 $on-widescreen: 1152px;
+
+// Backgrounds
+$background-dark: url("https://i.imgur.com/fQ6VLFT.png");
 
 @mixin media-query($device) {
   @media screen and (max-width: $device) {

@@ -1,7 +1,7 @@
 ---
 title: Making GitHub Profiles Cool - Painful Lessons with GitHub
-date: 2025-04-06T15:53:47.000Z
-modified: 2025-09-03T23:57:47.000Z
+date: {}
+modified: {}
 tags:
   - github
   - github-actions
@@ -28,6 +28,9 @@ If I know a way to have a free (ish) "server" that performs tasks, to that one t
 
 Love them or not, they have a [very generous free tier](https://github.com/pricing) - 2000 CI minutes per month. For scale, the runners used by this project take up 2\*3=6 seconds per day, which results in around 3 minutes of usage per month, out of 2000. Neat, isn't it? That is for public repositories though, but for our use case it's not a problem, as the "CDN" needs to be public anyways.
 
+![free tier github]({{site.baseurl}}/_posts/dynamic-github-profile/free tier.png)
+*Github free perks, including free CI minutes*
+
 Connect that with the fact that GitHub repositories are essentially free glorified file storage, and we have the stack for our little project ready. 
 
 *Note: I am, of course, NOT affiliated with GitHub in any way, Even less so, as mentioned above I'm **looking** for a goddamn job.*
@@ -37,7 +40,15 @@ Let's start by creating a simple animated banner that changes with the time of t
 
 The repository that serves as our CDN (coincidentally, also the profile README repo, but it isn't a necessity) has an "assets" subdir, with a nested "parts" subdir. The "assets" subdir will hold a "banner.gif" file that will be linked in the profile and will be overwritten by GitHub Action with files from "parts" subdir. 
 
+<figure>
+<img src="{{site.baseurl}}/_posts/dynamic-github-profile/files.png" alt="files structure">
+<figcaption>Repository file tree</figcaption>
+</figure>
+
+
 Once we have the files ready, let's figure out how to get an action to run on schedule. A quick Google search (and a dig through AI generated slop) led me to [this amazing blog post](https://jasonet.co/posts/scheduled-actions/) by [Jason Etcovitch](https://twitter.com/JasonEtco) which gave a detailed answer. It did not however mention the caveats, but we'll get to that later.
+
+![cron job syntax]({{site.baseurl}}/_posts/dynamic-github-profile/cron syntax.png)
 
 As it turns out, Actions can be scheduled like a good-old Cron job. Great, we can create two actions - one that runs in the morning, the other that runs in the evening. Actions are also capable of executing shell commands on their runners, and performing any kind of tasks with the repository; for our case - committing and pushing.
 
@@ -84,7 +95,7 @@ The first issue I encountered was fairly apparent, action failed with some permi
 
 A quick search gives a [quick resolution](https://github.com/ad-m/github-push-action/issues/96), apparently Actions are given read-only permissions to the repo by default. All that needs to be done is giving the workflows "Read and write permissions" in repository settings.
 
-![](https://user-images.githubusercontent.com/2881159/127678772-776865c9-ca74-449b-a6df-8e95a0471560.png)
+![what to click in actions settings](https://user-images.githubusercontent.com/2881159/127678772-776865c9-ca74-449b-a6df-8e95a0471560.png)
 
 Reasonable, right? With the read-write permissions the action ran smoothly, replacing the file correctly. 
 
@@ -93,6 +104,9 @@ Now, it's time to see if the scheduling works properly. Evening was nearing by, 
 6:15, "what the hell?" I muttered, as I was double checking my Action configs and files, wondering what was it that I messed up again. I concluded there's no use in waiting, I ran the action manually again and it worked as expected. The file was successfully replaced, commit authored by GitHub Actions Bot. I started digging.
 
 Surprisingly, it didn't take long for me to find a [discussion](https://github.com/orgs/community/discussions/147369) referencing a relevant [blog post](https://upptime.js.org/blog/2021/01/22/github-actions-schedule-not-working/). It mentions that scheduled GitHub actions barely ever run on-time, with delays up to several minutes being the norm. As it turns out, the scheduling documentation mentions the same thing, but nobody ever reads the docs, right?
+
+![github reply to issues with actions scheduling]({{site.baseurl}}/_posts/dynamic-github-profile/actions schedule discussion.png)
+*Reply of a Github affiliate, exerpt from the linked post*
 
 Honestly, other than being salty for deepening my paranoia, it doesn't matter much. This isn't a time-critical action that needs to run at exact times - it being late by even an hour isn't really a problem. Still, it's worth knowing in case you're doing something that requires the scheduling to be punctual. The article linked above mentions that the only way to assure the actions run on schedule is to employ an external scheduling server that invokes the GitHub API for running actions manually.
 
@@ -106,6 +120,8 @@ That's exactly the issue I had, but at that time I lacked this information. You 
 Well, now we're in quite a pickle. I started digging for why the images in README are not updating. I found this [discussion](https://github.com/orgs/community/discussions/46773) and it remarked using a PURGE http method, which the GitHub API apparently understands (I've not once heard of that method in my entire lifetime). But that solution is a little tedious - manually invoking the API twice a day is, generally speaking, not the best solution. Automating it was also uncertain, as I wasn't sure if the cache URLs were really static, especially after purging cache. 
 
 Fortunately enough, yet another, surprisingly simple [solution](https://github.com/atom/markdown-preview/issues/207#issuecomment-248848108) was proposed - appending a question mark at the end of the image URL (if it isn't already parameterized, if it is then it already shouldn't cache the image) . As stupidly simple as it is, it warrants a cache miss every single time. Upon applying this quick tweak, the image changes were finally visible. The profile was complete... or was it?
+
+![profile end results]({{site.baseurl}}/_posts/dynamic-github-profile/profile end result.png)
 
 ## What's next?
 Knowing that you can freely modify your README.md with scheduled arbitrary code execution, I think you can imagine that anything is possible. For example, another great idea I had in mind was displaying the weather in my city for recruiters to indulge themselves in it (be it out of envy or schadenfreude, mostly the latter though). 

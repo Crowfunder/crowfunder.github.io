@@ -27,6 +27,7 @@ baseurl:
 permalink: /:title/
 google_analytics: # leave it blank if not wish
 fb_appid:
+imageurl: https://raw.githubusercontent.com/Crowfunder/crowfunder.github.io/refs/heads/main/
 
 # Collection setting
 collections:

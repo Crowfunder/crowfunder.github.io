@@ -9,17 +9,19 @@ description: >-
   Discovering a simple way to have a dynamic, free, customized GitHub profile
   reacting to, for an instance, time of the day.
 ---
+
 As I was preparing for yet another job search, I've decided it's about time I write a proper, neat README for my GitHub profile. It's common knowledge how professionalism is measured by the number of stars on your repos, how green your activity graph is and how cool your profile looks.
 
 The "coolness" of the profile, while entirely subjective, can be derived from numerous things. For some people, it's denounced by how many animated stat graphs you can fit on one page, for others it's how niche the anime girl on your avatar is, but I thought it would be neat to have a "technically impressive" (/s) profile.
+
+**TL;DR Use GitHub Actions to modify user profile repository by substituting linked assets, caching shenanigans ensue.**
+
 
 ## The Idea
 
 Recruiters, just like programmers or other human beings, tend to work at various times of the day. I thought it would be a cool idea to, bear with me, "personalize" the experience a bit. It's a common thing with (human) languages how you greet people in different ways depending on the time of the day. 
 
 Let's say I want to have a "different" profile in the day and in the night - for starters, different image banners. Well, while GitHub markdown does support HTML tags, it doesn't support any code execution. The simple way would be a small server that serves different resources based on the time of day, but guess it or not, I'm a broke student and I'd rather not spend money just to have a day/night banner.
-
-**TL;DR Use GitHub Actions to modify user profile repository by substituting linked assets, caching shenanigans ensue.**
 
 **EDIT: It's been a while since I wrote this article and to my minor dismay, it turns out that it is not an entirely new idea and is quite well documented. Check out [this repository](https://github.com/abhisheknaiidu/awesome-github-profile-readme?tab=readme-ov-file#github-actions-) for more, cool examples on GitHub Actions integrations with your profile.**
 

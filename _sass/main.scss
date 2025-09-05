@@ -49,8 +49,10 @@ $on-desktop: 1024px;
 $on-widescreen: 1152px;
 
 // Backgrounds
-$background-dark: url("https://i.imgur.com/fQ6VLFT.png");
-$background-light: url("https://i.imgur.com/RGcgu3w.jpeg");
+// $background-dark: url("https://i.imgur.com/fQ6VLFT.png");
+$background-dark: url("https://i.imgur.com/qpeLeJa.jpeg")
+// $background-light: url("https://i.imgur.com/RGcgu3w.jpeg");
+$background-light: url("https://i.imgur.com/7tf5VSp.jpeg");
 
 @mixin media-query($device) {
   @media screen and (max-width: $device) {

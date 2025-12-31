@@ -12,7 +12,7 @@ I've started using Linux a good 7 years ago and migrated to it as my daily drive
 This article is a rant, a collection of annoyances and issues I've accumulated so far and has not forgotten about them. It will be neither very technical nor positive.
 
 ## Is Linux that bad? 
-Don't get me wrong, I find Linux to be a much better OS than Windows [1], in my case mostly because of performance. I have a relatively old HP Elite x2 2in1 laptop which is - frankly speaking - atrocious when it comes to performance. 
+Don't get me wrong, I find Linux to be a much better OS than Windows [[1]](####[1]), in my case mostly because of performance. I have a relatively old HP Elite x2 2in1 laptop which is - frankly speaking - atrocious when it comes to performance. 
 8GB of RAM is barely enough to run modern IDEs, be it IntelliJ or VSCodium [2].  The intel m5-6Y54 processor has as little as 2 cores with 1.10 GHz base frequency and thermal throttling is just insane at times. Back when I was running Windows I had to run Throttlestop [3] with maximum performance settings to make the system not hang up on opening the explorer. 
 
 Migrating to Linux helped to alleviate these pains, at least partially. I'm currently running PopOS 22.04 and I'm quite happy with it. Running High Performance setting with some [custom patches](https://wiki.archlinux.org/title/Improving_performance) makes the system at the very least usable for basic tasks and workable for more intense ones. 
@@ -119,9 +119,9 @@ I love Linux, it's a great OS, fun to tinker with, giving you plenty of freedom.
 
 
 
-[1] - Recently, Windows had a good amount of insane mess-ups, such as [breaking "localhost"](https://www.techpowerup.com/341976/microsoft-breaks-localhost-with-windows-11-october-update-users-forced-to-revert)
-[2] - I'm very well aware that I may as well just go full Neovim rice setup, but when I want to code I code, not bother with learning 1 million hotkeys to select and yank text.
-[3] - [Throttlestop](https://www.techpowerup.com/download/techpowerup-throttlestop/), a Windows utility for controlling CPU thermal throttling for Laptops.
-[4] - [godmode](https://www.tomshardware.com/how-to/enable-god-mode-windows-11)  - A "secret menu" on Windows with almost all system management menus aggregated into a single folder, that can be normally searched through. 
-[5] - [Tailscale](https://tailscale.com/) - A SAAS service providing a zero-config VPN based on Wireguard, connecting devices into a full mesh. 
-[6] - [sysctl](https://wiki.archlinux.org/title/Sysctl) -  A tool that enables setting and reading kernel parameters during runtime.
+#### [1] - Recently, Windows had a good amount of insane mess-ups, such as [breaking "localhost"](https://www.techpowerup.com/341976/microsoft-breaks-localhost-with-windows-11-october-update-users-forced-to-revert)
+#### [2] - I'm very well aware that I may as well just go full Neovim rice setup, but when I want to code I code, not bother with learning 1 million hotkeys to select and yank text.
+#### [3] - [Throttlestop](https://www.techpowerup.com/download/techpowerup-throttlestop/), a Windows utility for controlling CPU thermal throttling for Laptops.
+#### [4] - [godmode](https://www.tomshardware.com/how-to/enable-god-mode-windows-11)  - A "secret menu" on Windows with almost all system management menus aggregated into a single folder, that can be normally searched through. 
+#### [5] - [Tailscale](https://tailscale.com/) - A SAAS service providing a zero-config VPN based on Wireguard, connecting devices into a full mesh. 
+#### [6] - [sysctl](https://wiki.archlinux.org/title/Sysctl) -  A tool that enables setting and reading kernel parameters during runtime.

@@ -12,12 +12,12 @@ I've started using Linux a good 7 years ago and migrated to it as my daily drive
 This article is a rant, a collection of annoyances and issues I've accumulated so far and has not forgotten about them. It will be neither very technical nor positive.
 
 ## Is Linux that bad? 
-Don't get me wrong, I find Linux to be a much better OS than Windows [[1]](####[1]), in my case mostly because of performance. I have a relatively old HP Elite x2 2in1 laptop which is - frankly speaking - atrocious when it comes to performance. 
-8GB of RAM is barely enough to run modern IDEs, be it IntelliJ or VSCodium [2].  The intel m5-6Y54 processor has as little as 2 cores with 1.10 GHz base frequency and thermal throttling is just insane at times. Back when I was running Windows I had to run Throttlestop [3] with maximum performance settings to make the system not hang up on opening the explorer. 
+Don't get me wrong, I find Linux to be a much better OS than Windows [[1]](#footnotes), in my case mostly because of performance. I have a relatively old HP Elite x2 2in1 laptop which is - frankly speaking - atrocious when it comes to performance. 
+8GB of RAM is barely enough to run modern IDEs, be it IntelliJ or VSCodium [[2]](#footnotes).  The intel m5-6Y54 processor has as little as 2 cores with 1.10 GHz base frequency and thermal throttling is just insane at times. Back when I was running Windows I had to run Throttlestop [[3]](#footnotes) with maximum performance settings to make the system not hang up on opening the explorer. 
 
 Migrating to Linux helped to alleviate these pains, at least partially. I'm currently running PopOS 22.04 and I'm quite happy with it. Running High Performance setting with some [custom patches](https://wiki.archlinux.org/title/Improving_performance) makes the system at the very least usable for basic tasks and workable for more intense ones. 
 
-Another reason why I find Linux better is work comfort. It's much more power-user friendly (duh!) and has better support for some low-level tasks, such as writing drivers for super niche wireless devices. I got used to command line, it's much quicker to look for a command or a config, than looking for that one specific setting hidden in that one specific window hidden under one million clicks. (Thank god that [godmode](https://www.tomshardware.com/how-to/enable-god-mode-windows-11) [4] - pun intended - exists for Windows)
+Another reason why I find Linux better is work comfort. It's much more power-user friendly (duh!) and has better support for some low-level tasks, such as writing drivers for super niche wireless devices. I got used to command line, it's much quicker to look for a command or a config, than looking for that one specific setting hidden in that one specific window hidden under one million clicks. (Thank god that [godmode](https://www.tomshardware.com/how-to/enable-god-mode-windows-11) [[4]](#footnotes) - pun intended - exists for Windows)
 
 To sum that up, the point of this article is to pinpoint that, while much more comfortable and efficient, Linux is far from completely stable.
 
@@ -31,7 +31,7 @@ The solution to all my woes was installing a [GNOME Extension that completely di
 
 
 ## Tailscale - Software support sucks
-[Tailscale](https://tailscale.com/) [5] is pretty cool, I use it to connect to my devices to work remotely and set up a remote home lab. It usually just works, UX is great... until it isn't. This will be an example of poor software support.
+[Tailscale](https://tailscale.com/) [[5]](#footnotes) is pretty cool, I use it to connect to my devices to work remotely and set up a remote home lab. It usually just works, UX is great... until it isn't. This will be an example of poor software support.
 
 [Taildrop](https://tailscale.com/kb/1106/taildrop) is a pretty cool addon to Tailscale, it allows for sending files to other devices in the network. In Windows and Android the usage is reduces to, click on the file > share > send to device, and it just works. On Linux however....  
 
@@ -103,7 +103,7 @@ i915 0000:00:02.0: [drm] *ERROR* CPU pipe B FIFO underrun
 
 The error is related to i915, a Linux Intel Graphics kernel driver.
 Searching for this obscure issue resulted in... walkarounds, most of which never worked or merely reduced the frequency of the issue appearing. 
-The solutions were proposed in [this thread](https://forums.linuxmint.com/viewtopic.php?t=438762). Upon applying a fairly specific combination of kernel parameters it seems to have been mostly alleviated. My `/etc/sysctl.conf` parameters [6] are as such:
+The solutions were proposed in [this thread](https://forums.linuxmint.com/viewtopic.php?t=438762). Upon applying a fairly specific combination of kernel parameters it seems to have been mostly alleviated. My `/etc/sysctl.conf` parameters [[6]](#footnotes) are as such:
 ```
 intel_idle.max_cstate=4
 intel_iommu=igfx_off
@@ -118,10 +118,15 @@ Also, here is the official [issue in i915 repository](https://gitlab.freedesktop
 I love Linux, it's a great OS, fun to tinker with, giving you plenty of freedom. You can learn a lot about its internals just by using it, but sometimes you learn *too much*. Maybe it's just my bad luck, maybe it's niche hardware or weird OS configuration, maybe it's a bit of everything. Regardless of anything though, I'd never go back to Windows.
 
 
+### Footnotes {#footnotes}
+[1] - Recently, Windows had a good amount of insane mess-ups, such as [breaking "localhost"](https://www.techpowerup.com/341976/microsoft-breaks-localhost-with-windows-11-october-update-users-forced-to-revert)
 
-#### [1] - Recently, Windows had a good amount of insane mess-ups, such as [breaking "localhost"](https://www.techpowerup.com/341976/microsoft-breaks-localhost-with-windows-11-october-update-users-forced-to-revert)
-#### [2] - I'm very well aware that I may as well just go full Neovim rice setup, but when I want to code I code, not bother with learning 1 million hotkeys to select and yank text.
-#### [3] - [Throttlestop](https://www.techpowerup.com/download/techpowerup-throttlestop/), a Windows utility for controlling CPU thermal throttling for Laptops.
-#### [4] - [godmode](https://www.tomshardware.com/how-to/enable-god-mode-windows-11)  - A "secret menu" on Windows with almost all system management menus aggregated into a single folder, that can be normally searched through. 
-#### [5] - [Tailscale](https://tailscale.com/) - A SAAS service providing a zero-config VPN based on Wireguard, connecting devices into a full mesh. 
-#### [6] - [sysctl](https://wiki.archlinux.org/title/Sysctl) -  A tool that enables setting and reading kernel parameters during runtime.
+[2] - I'm very well aware that I may as well just go full Neovim rice setup, but when I want to code I code, not bother with learning 1 million hotkeys to select and yank text.
+
+[3] - [Throttlestop](https://www.techpowerup.com/download/techpowerup-throttlestop/), a Windows utility for controlling CPU thermal throttling for Laptops.
+
+[4] - [godmode](https://www.tomshardware.com/how-to/enable-god-mode-windows-11)  - A "secret menu" on Windows with almost all system management menus aggregated into a single folder, that can be normally searched through. 
+
+[5] - [Tailscale](https://tailscale.com/) - A SAAS service providing a zero-config VPN based on Wireguard, connecting devices into a full mesh. 
+
+[6] - [sysctl](https://wiki.archlinux.org/title/Sysctl) -  A tool that enables setting and reading kernel parameters during runtime.

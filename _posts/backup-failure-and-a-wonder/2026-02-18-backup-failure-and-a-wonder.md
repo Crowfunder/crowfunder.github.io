@@ -8,7 +8,7 @@ tags:
   - xiaomi
   - data_recovery
 description: >-
-  A melodramatic story of a failed backup and a year of memories saved by a miracle.
+  A melodramatic story of a failed backup, data recovery and a year of memories saved by a miracle.
 ---
 
 I've recently heard a rant on how scientists and engineers seldom publish failed research, and how they should do so regardless of the results - I took it to the heart. In the spirit of hubris and learning from failed attempts, let me tell you a story of a backup failure and a one-time wonder.  

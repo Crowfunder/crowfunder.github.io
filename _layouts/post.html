@@ -83,7 +83,8 @@ layout: compress
     {% if page.modified %}
       <small class="post-updated-at">updated_at {{page.modified | date: "%d-%m-%Y"}}</small>
     {% endif %}
-    <i>Liked the article? <a href="https://www.buymeacoffee.com/{{ site.author.buymeacoffee }}">Buy me a coffee.</a></i>
+
+    <h3><i>Liked the article? <a href="https://www.buymeacoffee.com/{{ site.author.buymeacoffee }}">Buy me a coffee.</a></i></h3>
     {% if page.next or page.previous %}
       {% include navigation.html %}
     {% endif %}

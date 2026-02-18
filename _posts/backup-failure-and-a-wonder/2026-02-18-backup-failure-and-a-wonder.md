@@ -134,10 +134,10 @@ Call it fool's luck, truth is that I made a grave mistake and tapped into some s
 ### Footnotes {#footnotes}
 [1] In case you might be wondering, automating this is no easy feat, as Android allows internal storage access through MTP, which is not a traditional filesystem access but rather object storage access - as far as I've tried, it's not possible to i.e [hook it up to robocopy/rsync.](https://superuser.com/questions/1157975/syncing-between-c-drive-and-phone-with-robocopy)
 
-[2] https://electronics.stackexchange.com/questions/164103/if-li-ion-battery-is-deeply-discharged-is-it-harmful-for-it-to-remain-in-this-s
+[2] I did not manage to find a lot of details on this one [this post summarized the topic](https://electronics.stackexchange.com/questions/164103/ if-li-ion-battery-is-deeply-discharged-is-it-harmful-for-it-to-remain-in-this-s) fairly well.
 
 [3] There are quite a few implementations of data extraction using EDL, the general idea is fairly well described in [Physical Mirror Extraction on Qualcomm-based Android Mobile Devices](https://dl.acm.org/doi/10.1145/3207677.3278046) which makes it a pretty tidy option when compared to i.e chip-off. One company (or more?) even based their entire product on the premise of EDL device manipulation which has quite some nasty potential, i.e the [Hydra Tool](https://www.hydradongle.com/).
 
-[4] It gets even worse when you learn that the only realistic way to get an authorized Firehose file, if it was not leaked, is by [**buying single-use credits**](aliexpress.com/i/1005005110800255.html) for a flash in some tool. A pretty nifty explanation on how the auth works can be found in many edl issues, such as [this one](https://github.com/bkerler/edl/issues/744#issuecomment-3774546088)
+[4] It gets even worse when you learn that the only realistic way to get an authorized Firehose file, if it was not leaked, is by [**buying single-use credits**](aliexpress.com/i/1005005110800255.html) for a flash in some tool. A pretty nifty explanation on how the auth works can be found in many edl issues, such as [this one](https://github.com/bkerler/edl/issues/744#issuecomment-3774546088).
 
-[5] https://source.android.com/docs/security/features/encryption/full-disk
+[5] Android implements [Full Disk Encryption](https://source.android.com/docs/security/features/encryption/full-disk) with keys relying on Trusted Execution Environment and Hardware Bound Keys. I recommend reading the linked specs.
